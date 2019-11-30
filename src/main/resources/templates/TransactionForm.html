@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title th:text="${title}"></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../static/css/main.css" th:href="@{/css/main.css}"
+	rel="stylesheet" />
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="row">
+		<div class="col-sm box6">
+			<h3 th:text="${msg}" style="color: green; font-style: italic;"></h3>
+		</div>
+	</div>
+	<br />
+	<br />
+	<h3 style="color: red; text-align: center">
+		<a href="/">HOME</a>
+	</h3>
+</body>
+</html>

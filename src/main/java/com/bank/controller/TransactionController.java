@@ -24,7 +24,7 @@ public class TransactionController {
 	@RequestMapping("/")
 	public String showForm() {
 		System.out.println("form");
-		return "accNo";
+		return "AccountNo";
 	}
 	
 	@RequestMapping("/accNoDtls")
@@ -34,7 +34,7 @@ public class TransactionController {
 		
 		if ("0".equals(saccNo) || "".equals(saccNo) ) {
 			model.addAttribute("msg", "Account Number Cant be Zero or Empty");
-			return "accNo";
+			return "AccountNo";
 			
 		}else {
 			
@@ -45,7 +45,7 @@ public class TransactionController {
 			
 			if (list.isEmpty()) {
 				model.addAttribute("msg", "Please Give Correct AccountNumber");
-				return "accNo";
+				return "AccountNo";
 			}
 			StringBuffer name= (StringBuffer) list.get(0);
 			Account account=(Account) list.get(1);
@@ -55,7 +55,7 @@ public class TransactionController {
 			model.addAttribute("accType", accType);
 			model.addAttribute("name", name);
 			model.addAttribute("baseAcc", baseAcc);
-			return "accDetails";
+			return "AcountDetails";
 		}
 		
 		
@@ -66,7 +66,7 @@ public class TransactionController {
 		baseAcc.setAccType(accountType);
 		String msg=tService.txByBank(baseAcc);
 		model.addAttribute("msg", msg);
-		return "txForm";
+		return "TransactionForm";
 		
 	}
 

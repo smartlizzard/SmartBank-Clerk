@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title th:text="${title}"></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../static/css/main.css" th:href="@{/css/main.css}"
+	rel="stylesheet" />
+</head>
+<div class="">
+	<h3 th:text="${msg}" style="color: green; font-style: italic;"></h3>
+</div>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm box">
+				<h2>Smart Bank Welcomes You</h2>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm box">
+			<div>
+				<form th:action="@{/accNoDtls}">
+					ACCOUNT NO :<input type="text" name="accNo" /><br /> <br>
+					<div class="col-sm box2">
+						<select class="custom-select" style="width: 120px;" name="accType">
+							<option th:value="savings">savings</option>
+							<option th:value="primary">primary</option>
+						</select>
+					</div>
+					<div class="col-sm box2">
+						<input style="width: 120px;" type="submit" value="SEARCH" />
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

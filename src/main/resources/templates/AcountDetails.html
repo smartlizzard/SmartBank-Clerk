@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title th:text="${title}"></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../static/css/main.css" th:href="@{/css/main.css}"
+	rel="stylesheet" />
+</head>
+<body>
+
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm divaccdtl">
+				<h2>ACCOUNT DETAILS</h2>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm box5">
+			<table id="user">
+				<thead>
+					<tr>
+						<td>NAME</td>
+						<td>ACCOUNT NO</td>
+						<td>BALANCE</td>
+						<td>ACCOUNT TYPE</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="account : ${account}">
+						<td th:text="${name}"></td>
+						<td th:text="${account.accountNumber}"></td>
+						<td th:text="${account.accountBalance}"></td>
+						<td th:text="${accType}"></td>
+
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<br />
+	<div class="row">
+		<div class="col-sm box6">
+			<a href="/">Search Again</a>
+			<h2>DO TRANSACTION</h2>
+
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm box7">
+			<form th:action="@{/txByBank}" method="POST" th:object="${baseAcc}">
+				<p>ACCOUNT NO</p>
+				<input type="text" name="accNo" th:value="*{accNo}" readonly="true" />
+				<p>ENTER AMOUNT</p>
+				<input type="text" name="balance" th:value="*{balance}" />
+
+				<p>SELECT OPERATION</p>
+
+				<div>
+					<input type="radio" th:name="operation" value="deposite" />DEPOSITE
+				</div>
+				<div>
+					<input type="radio" th:name="operation" value="withdraw" />WITHDRAW
+				</div>
+
+				<input type="submit" class="btn btn-primary" value="SUBMIT">
+			</form>
+
+		</div>
+	</div>
+
+
+
+
+</body>
+</html>

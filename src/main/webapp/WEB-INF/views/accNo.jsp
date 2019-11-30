@@ -11,6 +11,8 @@ ${msg}
 <form action="accNoDtls">
 
 <p>WELCOME :</p>
+
+
 ACCOUNT NO :<input type="text" name="accNo"/><br/>
  <select name="accType">
   <!-- <option value="select">select</option> -->
