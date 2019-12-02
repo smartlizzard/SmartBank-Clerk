@@ -8,10 +8,10 @@
 		<version>2.2.1.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.anil</groupId>
-	<artifactId>Anil</artifactId>
+	<groupId>com.smartbank</groupId>
+	<artifactId>SmartBank-Clerk</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>BankTransaction</name>
 	<description>OnlineBanking</description>
 
