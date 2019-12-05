@@ -20,8 +20,9 @@ public class TransactionService {
 	
 	RestTemplate rt=new RestTemplate();
 	
-	public static final String request="http://localhost:8090/account/getAccDtls";
-	public static final String txReq="http://localhost:8090/account/txByClerk";
+	public static final String request="smart-bank://smart-bank-service:8090/account/getAccDtls";
+	public static final String txReq="smart-bank://smart-bank-service:8090/account/txByClerk";
+	//txReq="http://localhost:8090/account/txByClerk";
 	//http://localhost:8090/account/getAccDtls/11223147/savings
 	
 	public List<Object> getAccDetails(int accNo,String accType) {
