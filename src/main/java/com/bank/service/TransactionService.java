@@ -4,6 +4,7 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
@@ -18,20 +19,31 @@ import com.bank.domain.User;
 @Service
 public class TransactionService {
 	
-	RestTemplate rt=new RestTemplate();
+	//RestTemplate rt=new RestTemplate();
 	
-	public static final String request="smart-bank://smart-bank-service:8090/account/getAccDtls";
-	public static final String txReq="smart-bank://smart-bank-service:8090/account/txByClerk";
+	@Autowired
+    RestTemplate restTemplet;
+	
+	
+	
+	public static final String request="http://SMARTBANK-SERVICE/account/getAccDtls";
+	public static final String txReq="http://SMARTBANK-SERVICE/account/txByClerk";
+
+	//public static final String request="http://localhost:8090/account/getAccDtls";
+	//public static final String txReq="http://localhost:8090/account/txByClerk";
 	//txReq="http://localhost:8090/account/txByClerk";
 	//http://localhost:8090/account/getAccDtls/11223147/savings
 	
 	public List<Object> getAccDetails(int accNo,String accType) {
+		System.out.println("inside getAccDetails ");
+		
 		if (accNo != 0) {
+			//String finalReq=request+"/api/transaction"+accNo+"/"+accType;
 			String finalReq=request+"/"+accNo+"/"+accType;
 			System.out.println(finalReq);
 			List<Object> list=new ArrayList<>();
 			
-			User user=rt.getForObject(finalReq, User.class);
+			User user=restTemplet.getForObject(finalReq, User.class);
 			if (user == null) {
 				//list.add(user);
 				return list;
@@ -65,7 +77,7 @@ public class TransactionService {
 		if (baseAcc.getBalance() > 0 && baseAcc.getOperation() != null) {
 			URI uri=new URI(txReq);
 			RequestEntity reqEntity=RequestEntity.post(uri).accept(MediaType.APPLICATION_JSON).body(baseAcc);
-			ResponseEntity<String> res=rt.exchange(reqEntity, String.class);
+			ResponseEntity<String> res=restTemplet.exchange(reqEntity, String.class);
 			String message=res.getBody();
 			return message;
 			

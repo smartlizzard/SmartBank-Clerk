@@ -11,15 +11,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.bank.Property;
 import com.bank.domain.Account;
 import com.bank.domain.BasicAccount;
 import com.bank.service.TransactionService;
 
 @Controller
 public class TransactionController {
+	
 	String accountType;
+	
 	@Autowired
 	private TransactionService tService;
+	@Autowired
+	private Property property;
+	
 	
 	@RequestMapping("/")
 	public String showForm() {
@@ -28,9 +34,12 @@ public class TransactionController {
 	}
 	
 	@RequestMapping("/accNoDtls")
-	public String getAccDetls(@RequestParam(value = "accNo") String saccNo,@RequestParam(value = "accType") String accType,Model model) {
-		BasicAccount baseAcc=new BasicAccount();
+	public String getAccDetls(@RequestParam(value = "accNo") String saccNo,
+			@RequestParam(value = "accType") String accType,Model model) {
 		
+		BasicAccount baseAcc = new BasicAccount();
+		
+		System.out.println("inside getAccDetls ");
 		
 		if ("0".equals(saccNo) || "".equals(saccNo) ) {
 			model.addAttribute("msg", "Account Number Cant be Zero or Empty");
@@ -55,6 +64,8 @@ public class TransactionController {
 			model.addAttribute("accType", accType);
 			model.addAttribute("name", name);
 			model.addAttribute("baseAcc", baseAcc);
+			model.addAttribute("url", property.getProperties().get("url"));
+			System.out.println(property.getProperties().get("url"));
 			return "AcountDetails";
 		}
 		
@@ -66,6 +77,7 @@ public class TransactionController {
 		baseAcc.setAccType(accountType);
 		String msg=tService.txByBank(baseAcc);
 		model.addAttribute("msg", msg);
+		model.addAttribute("url", property.getProperties().get("url"));
 		return "TransactionForm";
 		
 	}
