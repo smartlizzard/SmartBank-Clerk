@@ -3,13 +3,24 @@
 <head>
 <title th:text="${title}"></title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="../static/css/main.css" th:href="@{/css/main.css}"
-	rel="stylesheet" />
+<link th:href="@{/css/main.css}" rel="stylesheet" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/css/bootstrap.min.css}" />
 </head>
-<div class="">
-	<h3 th:text="${msg}" style="color: green; font-style: italic;"></h3>
-</div>
+
+
+
 <body>
+
+	<div class="row">
+		<div class="alert alert-warning alert-dismissible boxalert">
+			<span class="close" data-dismiss="alert">&times;</span> <strong
+				th:text="${msg}"></strong>
+		</div>
+	</div>
+
+
+
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-sm box">
@@ -19,17 +30,21 @@
 	</div>
 	<div class="row">
 		<div class="col-sm box">
-			<div>
+			<div class="form-group ">
 				<form th:action="@{/accNoDtls}">
-					ACCOUNT NO :<input type="text" name="accNo" /><br /> <br>
-					<div class="col-sm box2">
-						<select class="custom-select" style="width: 120px;" name="accType">
+					ACCOUNT NO :<input type="text" class="form-control text-center"
+						name="accNo" />
+
+					<div class="form-group ">
+						<label for="sel1">Please Select One:</label> <select
+							class="form-control" id="sel1" name="accType">
 							<option th:value="savings">savings</option>
 							<option th:value="primary">primary</option>
 						</select>
 					</div>
+
 					<div class="col-sm box2">
-						<input style="width: 120px;" type="submit" value="SEARCH" />
+						<button type="submit" class="btn btn-primary">SEARCH</button>
 					</div>
 				</form>
 			</div>

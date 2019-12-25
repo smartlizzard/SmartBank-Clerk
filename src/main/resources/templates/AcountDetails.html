@@ -3,12 +3,11 @@
 <head>
 <title th:text="${title}"></title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="../static/css/main.css" th:href="@{/css/main.css}"
-	rel="stylesheet" />
+<link th:href="@{/css/main.css}" rel="stylesheet" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/css/bootstrap.min.css}" />
 </head>
 <body>
-
-
 
 	<div class="container-fluid">
 		<div class="row">
@@ -17,7 +16,7 @@
 			</div>
 		</div>
 	</div>
-
+	<br>
 	<div class="row">
 		<div class="col-sm box5">
 			<table id="user">
@@ -44,32 +43,47 @@
 
 	<br />
 	<div class="row">
-		<div class="col-sm box6">
-		
-			<a th:href="@{${url}}">Search Again</a>
+		<div class="col-sm box6 btn-xl">
+			<a th:href="@{${url}}" class="btn btn-primary">Search Again</a>
+		</div>
+
+		<div class="col-sm divtranx">
 			<h2>DO TRANSACTION</h2>
 		</div>
 	</div>
+	<br>
 	<div class="row">
+
 		<div class="col-sm box7">
+
 			<form th:action="@{/txByBank}" method="POST" th:object="${baseAcc}">
-				<p>ACCOUNT NO</p>
-				<input type="text" name="accNo" th:value="*{accNo}" readonly="true" />
-				<p>ENTER AMOUNT</p>
-				<input type="text" name="balance" th:value="*{balance}" />
 
-				<p>SELECT OPERATION</p>
+				<div class="form-group ">
+					<div class="col-xs-12">
+						<label for="name">ACCOUNT NO</label> <input type="text"
+							class="form-control" name="accNo" th:value="*{accNo}"
+							th:readonly="true"/>
+					</div>
 
-				<div>
-					<input type="radio" th:name="operation" value="deposite" />DEPOSITE
 				</div>
-				<div>
-					<input type="radio" th:name="operation" value="withdraw" />WITHDRAW
+				<div class="form-group ">
+					<div class="col-xs-12">
+						<label for="name">ENTER AMOUNT</label> 
+						<input type="text"
+							class="form-control" name="balance" th:value="*{balance}"/>
+					</div>
 				</div>
 
-				<input type="submit" class="btn btn-primary" value="SUBMIT">
+				
+				<div class="header1">
+					<h4>Select Operation</h4>
+					<input th:type="radio" th:name="operation" th:value="deposite" />DEPOSITE
+					<input th:type="radio" th:name="operation" th:value="withdraw" />WITHDRAW
+					<div>
+					<input th:type="submit" class="btn btn-primary" value="SUBMIT">
+				</div>
+				</div>
 			</form>
-
 		</div>
 	</div>
 

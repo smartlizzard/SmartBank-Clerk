@@ -2,16 +2,10 @@ body {
 	background-color: transparent;
 }
 
+//div {
+  //border: 2px solid red;
+//}
 
-
-
-html {
-	background: url("/images/bg.png") no-repeat center center fixed;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-}
 
 .form-basic {
 	max-width: 640px;
@@ -126,51 +120,6 @@ html {
 	margin: 40px 183px 0;
 }
 
-/*	Making the form responsive. Remove this media query
-    if you don't need the form to work on mobile devices. */
-@media ( max-width : 600px) {
-	.form-basic {
-		padding: 30px;
-		max-width: 480px;
-	}
-	.form-basic .form-row {
-		max-width: 300px;
-		margin: 25px auto;
-		text-align: left;
-	}
-	.form-basic .form-title-row {
-		margin-bottom: 50px;
-	}
-	.form-basic .form-row>label span {
-		display: block;
-		text-align: left;
-		padding: 0 0 15px;
-	}
-	.form-basic select {
-		width: 240px;
-	}
-	.form-basic input[type=checkbox] {
-		margin-top: 0;
-	}
-	.form-basic .form-radio-buttons>div {
-		margin: 0 0 10px;
-	}
-	.form-basic button {
-		margin: 0;
-	}
-}
-
-.main {
-	margin-top: 70px;
-}
-
-.main-center {
-	margin-top: 30px;
-	margin: 0 auto;
-	max-width: 330px;
-	padding: 40px 40px;
-}
-
 
 body {
 	padding: 0 2em;
@@ -179,22 +128,21 @@ body {
 	/*background: #f2f2f2;*/
 }
 
-h1 {
-	font-family: Verdana;
-	font-weight: normal;
-	/*color: #024457;*/
-}
-
-h1 span {
-	color: #167F92;
-}
-
 
 .divaccdtl{
-	height: 40px;
+  height: 40px;
   padding: 10px;
   top: 80px;
-  margin-left: 450px;
+  margin-left: 510px;
+  margin-right: 450px;
+  text-align: justify;
+}
+
+.divtranx{
+  height: 40px;
+  padding: 10px;
+  top: 80px;
+  margin-left: 540px;
   margin-right: 450px;
   text-align: justify;
 }
@@ -209,19 +157,19 @@ h1 span {
 }
 
 .box6{
-	height: 80px;
+  height: 80px;
   padding: 10px;
   top: 80px;
-  margin-left: 480px;
+  margin-left: 610px;
   margin-right: 480px;
   text-align: justify;
 }
 
 .box7{
-	height: 300px;
+  height: 300px;
   padding: 10px;
   top: 80px;
-  margin-left: 480px;
+  margin-left: 500px;
   margin-right: 480px;
   text-align: justify;
 }
@@ -234,12 +182,28 @@ h1 span {
   text-align: justify;
 }
 
+.boxalert{
+   height: 50px;
+   //width: 350px;
+  padding: 10px;
+  top: 80px;
+  margin-left: 450px;
+  margin-right: 450px;
+  text-align: justify;
+}
+
+.boxhome{
+  height: 100px;
+  padding: 10px;
+  top: 80px;
+  margin-left: 600px;
+  margin-right: 450px;
+  text-align: justify;
+}
 
 .box2 {
-	
-	height: 10px;
+  height: 10px;
   padding: 10px;
-  
   margin-left: 130px;
   margin-right: 10px;
   text-align: justify;
@@ -269,27 +233,26 @@ h1 span {
   padding: 8px;
 }
 
-#user tr:nth-child(even){background-color: #f2f2f2;}
 
-#user tr:hover {background-color: #ddd;}
 
-#user th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #4CAF50;
-  color: white;
-}
 
-a:link, a:visited {
-  background-color: blue;
-  color: white;
-  padding: 14px 25px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-}
+
 
 a:hover, a:active {
   background-color: blue;
+}
+
+.btn-xl {
+    padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 400px;
+    width:500%; 
+}
+
+.header1 {
+  padding: 10px;
+  text-align: center;
+  background: #1abc9c;
+  color: white;
+  font-size: 10px;
 }

@@ -3,22 +3,28 @@
 <head>
 <title th:text="${title}"></title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="../static/css/main.css" th:href="@{/css/main.css}"
-	rel="stylesheet" />
+<link th:href="@{/css/main.css}" rel="stylesheet" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/css/bootstrap.min.css}" />
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
 <body>
-	<div class="row">
-		<div class="col-sm box6">
-			<h3 th:text="${msg}" style="color: green; font-style: italic;"></h3>
+
+	<div th:class="row">
+		<div th:class="alert alert-warning alert-dismissible boxalert">
+			<span th:class="close" th:data-dismiss="alert">&times;</span> <strong
+				th:if="${msg}"></strong>
 		</div>
 	</div>
-	<br />
-	<br />
-	<h3 style="color: red; text-align: center">
-		<a th:href="@{${url}}">HOME</a>
-	</h3>
+
+
+
+
+
+	<div class="col-sm boxhome">
+		<a th:href="@{${url}}" class="btn btn-info" role="button">HOME</a>
+	</div>
 </body>
 </html>
